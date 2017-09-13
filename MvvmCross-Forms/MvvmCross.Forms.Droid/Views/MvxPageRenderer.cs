@@ -8,11 +8,11 @@
 
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.Core.ViewModels;
-using MvvmCross.Forms.Presenters;
+using MvvmCross.Forms.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
-namespace MvvmCross.Forms.Droid
+namespace MvvmCross.Forms.Droid.Views
 {
     public class MvxPageRenderer : PageRenderer, IMvxBindingContextOwner
     {

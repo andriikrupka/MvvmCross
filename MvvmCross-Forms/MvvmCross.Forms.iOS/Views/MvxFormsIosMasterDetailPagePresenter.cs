@@ -1,5 +1,5 @@
-﻿using MvvmCross.Forms.Core;
-using MvvmCross.Forms.Presenters;
+﻿using MvvmCross.Forms.Views;
+using MvvmCross.Forms.Platform;
 using MvvmCross.iOS.Views.Presenters;
 using UIKit;
 using Xamarin.Forms;

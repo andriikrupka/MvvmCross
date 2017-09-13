@@ -8,7 +8,7 @@ using MvvmCross.Platform;
 using MvvmCross.Platform.IoC;
 using Xamarin.Forms;
 
-namespace MvvmCross.Forms.Presenters
+namespace MvvmCross.Forms.Views
 {
     public class MvxFormsPageLoader : IMvxFormsPageLoader
     {

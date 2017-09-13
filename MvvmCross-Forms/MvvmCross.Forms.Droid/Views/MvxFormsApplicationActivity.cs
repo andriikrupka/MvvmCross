@@ -4,12 +4,12 @@ using MvvmCross.Binding.BindingContext;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Droid.Platform;
 using MvvmCross.Droid.Views;
-using MvvmCross.Forms.Core;
-using MvvmCross.Forms.Presenters;
+using MvvmCross.Forms.Platform;
+using MvvmCross.Forms.Views;
 using MvvmCross.Platform;
 using Xamarin.Forms.Platform.Android;
 
-namespace MvvmCross.Forms.Droid
+namespace MvvmCross.Forms.Droid.Views
 {
     public class MvxFormsApplicationActivity : FormsApplicationActivity, IMvxAndroidView
     {
@@ -36,7 +36,7 @@ namespace MvvmCross.Forms.Droid
             {
                 if (_formsApplication == null)
                 {
-                    var formsPresenter = (IMvxFormsPagePresenter)Mvx.Resolve<IMvxAndroidViewPresenter>();
+                    var formsPresenter = Mvx.Resolve<IMvxFormsViewPresenter>();
                     _formsApplication = formsPresenter.FormsApplication;
                 }
                 return _formsApplication;

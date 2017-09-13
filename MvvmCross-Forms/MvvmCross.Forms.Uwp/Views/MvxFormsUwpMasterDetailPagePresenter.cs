@@ -1,4 +1,4 @@
-﻿using MvvmCross.Forms.Core;
+﻿using MvvmCross.Forms.Platform;
 using MvvmCross.Forms.Presenters;
 using MvvmCross.Uwp.Views;
 using Xamarin.Forms;

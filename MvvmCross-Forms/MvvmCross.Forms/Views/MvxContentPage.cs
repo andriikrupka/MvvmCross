@@ -2,7 +2,7 @@
 using MvvmCross.Core.ViewModels;
 using Xamarin.Forms;
 
-namespace MvvmCross.Forms.Core
+namespace MvvmCross.Forms.Views
 {
     public class MvxContentPage : ContentPage, IMvxContentPage
     {
@@ -36,9 +36,20 @@ namespace MvvmCross.Forms.Core
 
         public IMvxViewModel ViewModel
         {
-            get { return DataContext as IMvxViewModel; }
-            set { DataContext = value; }
+            get
+            {
+                return DataContext as IMvxViewModel;
+            }
+            set 
+            {
+                DataContext = value;
+                OnViewModelSet();
+            }
         }
+
+		protected virtual void OnViewModelSet()
+		{
+		}
 
         protected override void OnAppearing()
         {
@@ -53,8 +64,6 @@ namespace MvvmCross.Forms.Core
             ViewModel?.ViewDisappearing();
             ViewModel?.ViewDisappeared();
         }
-
-        public MvxViewModelRequest Request { get; set; }
     }
 
     public class MvxContentPage<TViewModel>

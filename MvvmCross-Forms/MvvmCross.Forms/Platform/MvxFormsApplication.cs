@@ -9,7 +9,7 @@
 using System;
 using Xamarin.Forms;
 
-namespace MvvmCross.Forms.Core
+namespace MvvmCross.Forms.Platform
 {
     public class MvxFormsApplication : Application
     {

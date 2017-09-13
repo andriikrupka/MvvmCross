@@ -2,11 +2,10 @@
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Core.Views;
 
-namespace MvvmCross.Forms.Core
+namespace MvvmCross.Forms.Views
 {
     public interface IMvxContentPage : IMvxView, IMvxBindingContextOwner
     {
-        MvxViewModelRequest Request { get; set; }
     }
 
     public interface IMvxContentPage<TViewModel>

@@ -9,11 +9,11 @@
 using System;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Core.Views;
-using MvvmCross.Forms.Core;
+using MvvmCross.Forms.Platform;
 using MvvmCross.Platform;
 using Xamarin.Forms;
-
-namespace MvvmCross.Forms.Presenters
+/*
+namespace MvvmCross.Forms.Views
 {
     public abstract class MvxFormsPagePresenter
         : MvxViewPresenter, IMvxFormsPagePresenter
@@ -123,4 +123,4 @@ namespace MvvmCross.Forms.Presenters
         {
         }
     }
-}
+}*/

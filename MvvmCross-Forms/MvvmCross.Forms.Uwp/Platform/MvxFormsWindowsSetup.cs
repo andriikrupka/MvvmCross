@@ -1,10 +1,10 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Reflection;
 using Windows.ApplicationModel.Activation;
 using MvvmCross.Binding;
 using MvvmCross.Core.Views;
 using MvvmCross.Forms.Bindings;
-using MvvmCross.Forms.Core;
+using MvvmCross.Forms.Platform;
 using MvvmCross.Forms.Uwp.Presenters;
 using MvvmCross.Platform;
 using MvvmCross.Uwp.Platform;
@@ -59,8 +59,7 @@ namespace MvvmCross.Forms.Uwp
         protected override IMvxWindowsViewPresenter CreateViewPresenter(IMvxWindowsFrame rootFrame)
         {
             var presenter = new MvxFormsUwpPagePresenter(rootFrame, FormsApplication);
-            Mvx.RegisterSingleton<IMvxViewPresenter>(presenter);
-
+            Mvx.RegisterSingleton<IMvxFormsViewPresenter>(presenter);
             return presenter;
         }
 

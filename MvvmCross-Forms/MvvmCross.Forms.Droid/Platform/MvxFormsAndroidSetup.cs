@@ -1,30 +1,27 @@
 using System.Collections.Generic;
 using System.Reflection;
+using Android.Content;
 using MvvmCross.Binding;
+using MvvmCross.Droid.Platform;
+using MvvmCross.Droid.Views;
 using MvvmCross.Forms.Bindings;
-using MvvmCross.Forms.Core;
-using MvvmCross.Forms.iOS.Presenters;
-using MvvmCross.iOS.Platform;
-using MvvmCross.iOS.Views.Presenters;
+using MvvmCross.Forms.Platform;
+using MvvmCross.Forms.Droid.Views;
 using MvvmCross.Localization;
-using UIKit;
+using MvvmCross.Platform;
+using MvvmCross.Platform.Droid.Platform;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Platform.Plugins;
+using MvvmCross.Forms.Views;
 
-namespace MvvmCross.Forms.iOS
+namespace MvvmCross.Forms.Droid.Platform
 {
-    public abstract class MvxFormsIosSetup : MvxIosSetup
+    public abstract class MvxFormsAndroidSetup : MvxAndroidSetup
     {
         private List<Assembly> _viewAssemblies;
         private MvxFormsApplication _formsApplication;
 
-        protected MvxFormsIosSetup(IMvxApplicationDelegate applicationDelegate, UIWindow window)
-            : base(applicationDelegate, window)
-        {
-        }
-
-        protected MvxFormsIosSetup(IMvxApplicationDelegate applicationDelegate, IMvxIosViewPresenter presenter)
-            : base(applicationDelegate, presenter)
+        public MvxFormsAndroidSetup(Context applicationContext) : base(applicationContext)
         {
         }
 
@@ -42,12 +39,13 @@ namespace MvvmCross.Forms.iOS
             _viewAssemblies.AddRange(GetViewModelAssemblies());
         }
 
-        public MvxFormsApplication FormsApplication {
+        public MvxFormsApplication FormsApplication
+        {
             get
             {
                 if (!Xamarin.Forms.Forms.IsInitialized)
-                    Xamarin.Forms.Forms.Init();
-                if(_formsApplication == null)
+                    Xamarin.Forms.Forms.Init(Mvx.Resolve<IMvxAndroidCurrentTopActivity>().Activity, null);
+                if (_formsApplication == null)
                     _formsApplication = CreateFormsApplication();
                 return _formsApplication;
             }
@@ -55,9 +53,11 @@ namespace MvvmCross.Forms.iOS
 
         protected virtual MvxFormsApplication CreateFormsApplication() => new MvxFormsApplication();
 
-        protected override IMvxIosViewPresenter CreatePresenter()
+        protected override IMvxAndroidViewPresenter CreateViewPresenter()
         {
-            return new MvxFormsIosPagePresenter(Window, FormsApplication);
+            var presenter = new MvxFormsAndroidViewPresenter(AndroidViewAssemblies, FormsApplication);
+            Mvx.RegisterSingleton<IMvxFormsViewPresenter>(presenter);
+            return presenter;
         }
 
         protected override IEnumerable<Assembly> ValueConverterAssemblies
@@ -70,6 +70,14 @@ namespace MvvmCross.Forms.iOS
                 };
                 return toReturn;
             }
+        }
+
+        protected override void InitializeBindingBuilder()
+        {
+            MvxBindingBuilder bindingBuilder = CreateBindingBuilder();
+
+            RegisterBindingBuilderCallbacks();
+            bindingBuilder.DoRegistration();
         }
 
         protected override MvxBindingBuilder CreateBindingBuilder() => new MvxFormsBindingBuilder();

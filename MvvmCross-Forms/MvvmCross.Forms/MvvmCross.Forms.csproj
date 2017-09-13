@@ -40,16 +40,8 @@
       <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Bindings\La.n.g.cs" />
-    <Compile Include="Core\IMvxContentPage.cs" />
-    <Compile Include="Presenters\IMvxFormsPageLoader.cs" />
     <Compile Include="ViewModels\IMvxMasterDetailViewModel.cs" />
-    <Compile Include="Core\MvxContentPage.cs" />
-    <Compile Include="Core\MvxFormsApplication.cs" />
-    <Compile Include="Presenters\MvxFormsMasterDetailPagePresenter.cs" />
-    <Compile Include="Presenters\MvxFormsPageLoader.cs" />
-    <Compile Include="Presenters\MvxFormsPagePresenter.cs" />
     <Compile Include="ViewModels\MvxMasterDetailViewModel.cs" />
-    <Compile Include="Presenters\MvxPresenterHelpers.cs" />
     <Compile Include="Bindings\Bi.n.d.cs" />
     <Compile Include="Bindings\IMvxBindingCreator.cs" />
     <Compile Include="Bindings\MvxBindablePropertyExtensionMethods.cs" />
@@ -59,7 +51,16 @@
     <Compile Include="Bindings\MvxFormsTargetBindingFactoryRegistry.cs" />
     <Compile Include="Bindings\Target\MvxBindablePropertyTargetBinding.cs" />
     <Compile Include="Views\MvxImageView.cs" />
-    <Compile Include="Presenters\IMvxFormsPagePresenter.cs" />
+    <Compile Include="Views\IMvxFormsPageLoader.cs" />
+    <Compile Include="Views\IMvxFormsViewPresenter.cs" />
+    <Compile Include="Views\MvxFormsMasterDetailPagePresenter.cs" />
+    <Compile Include="Views\MvxFormsPageLoader.cs" />
+    <Compile Include="Views\MvxFormsPagePresenter.cs" />
+    <Compile Include="Views\MvxPresenterHelpers.cs" />
+    <Compile Include="Views\Attributes\MvxFormsPagePresentationAttribute.cs" />
+    <Compile Include="Views\IMvxContentPage.cs" />
+    <Compile Include="Views\MvxContentPage.cs" />
+    <Compile Include="Platform\MvxFormsApplication.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -104,6 +105,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Attributes\" />
+    <Folder Include="Platform\" />
   </ItemGroup>
   <Import Project="..\..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
