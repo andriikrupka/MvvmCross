@@ -158,6 +158,8 @@ Task("GitLink")
 		"playground.wpf",
         "Playground.Droid",
         "Playground.Uwp",
+        "Playground.Forms.Droid",
+        "Playground.Forms.iOS",
 		"MvxBindingsExample",
 		"MvxBindingsExample.Android",
 		"MvxBindingsExample.iOS",
