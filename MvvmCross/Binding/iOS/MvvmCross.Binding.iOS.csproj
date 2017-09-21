@@ -95,6 +95,8 @@
     <Compile Include="Target\MvxUISegmentedControlSelectedSegmentTargetBinding.cs" />
     <Compile Include="Target\MvxUIControlTargetBinding.cs" />
     <Compile Include="Views\MvxTableViewHeaderFooterView.cs" />
+    <Compile Include="Views\MvxBaseGroupedTableViewSource.cs" />
+    <Compile Include="Views\MvxGroupedTableViewSource.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Platform\iOS\MvvmCross.Platform.iOS.csproj">
